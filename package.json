@@ -6,8 +6,15 @@
   "author": "Marat Nuriev",
   "email": "nurieff@gmail.com",
   "license": "MIT",
+  "repository": "https://github.com/gulp-query/gulp-query-copy",
+  "keywords": [
+    "copy",
+    "gulp",
+    "gulp-query",
+    "gulp-query-plugin"
+  ],
   "dependencies": {
-    "gulp-query": "github:gulp-query/gulp-query",
+    "gulp-query": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1"
   }
