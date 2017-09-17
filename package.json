@@ -1,6 +1,6 @@
 {
   "name": "gulp-query-copy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This plugin provides copy, rename and combine files.",
   "main": "index.js",
   "author": "Marat Nuriev",

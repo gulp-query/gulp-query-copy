@@ -54,7 +54,7 @@ class CopyPlugin extends Plugin {
 
     if (!is_concat) {
 
-      this._reportsOfCopy[path_to] = {
+      this._reportsOfCopy[task_name] = {
         from: from,
         to: path_to,
         completeAmount: 0
@@ -62,7 +62,7 @@ class CopyPlugin extends Plugin {
 
       return gulp.src(prepareFrom)
         .pipe(gulp.dest(path_to))
-        .pipe(this.notify(this.reportOfCopy.bind(this, task_name, path_to)))
+        .pipe(this.notify(this.reportOfCopy.bind(this, task_name)))
         ;
 
     } else {
@@ -92,23 +92,23 @@ class CopyPlugin extends Plugin {
     }
   }
 
-  reportOfCopy(task_name, pathTo) {
+  reportOfCopy(task_name) {
 
-    if (!(pathTo in this._reportsOfCopy)) {
+    if (!(task_name in this._reportsOfCopy)) {
       return;
     }
 
-    ++this._reportsOfCopy[pathTo].completeAmount;
+    ++this._reportsOfCopy[task_name].completeAmount;
 
-    if (this._reportsOfCopy[pathTo].completeAmount >= this._reportsOfCopy[pathTo].from.length) {
+    if (this._reportsOfCopy[task_name].completeAmount >= this._reportsOfCopy[task_name].from.length) {
       this.report(
         task_name,
-        this._reportsOfCopy[pathTo].from,
-        this._reportsOfCopy[pathTo].to,
+        this._reportsOfCopy[task_name].from,
+        this._reportsOfCopy[task_name].to,
         true
       );
 
-      delete this._reportsOfCopy[pathTo];
+      delete this._reportsOfCopy[task_name];
     }
   }
 }
